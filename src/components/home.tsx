@@ -14,20 +14,17 @@ const Home = ({ isNavigationTransparent = true }: HomeProps) => {
   return (
     <div className="min-h-screen bg-white">
       <Navigation isTransparent={isNavigationTransparent} />
-
       <main>
         <Hero
           backgroundImage="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937"
           title="Профессиональное мастерство визажиста"
           subtitle="Преобразите свой образ с помощью профессионального макияжа и индивидуальных косметических услуг"
         />
-
         <GallerySection />
-
         <TestimonialsSlider />
         <ContactForm />
+        <ContactForm />
       </main>
-
       <Footer
         socialLinks={{
           instagram: "https://instagram.com/makeupartist",
@@ -38,6 +35,7 @@ const Home = ({ isNavigationTransparent = true }: HomeProps) => {
           phone: "+1 (555) 123-4567",
         }}
       />
+      <div className="w-[6px] h-[12px]"></div>
     </div>
   );
 };
