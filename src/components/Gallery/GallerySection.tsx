@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import { Button } from "@/components/ui/button";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Badge } from "@/components/ui/badge";
+import { motion, AnimatePresence } from "framer-motion";
 import GalleryGrid from "./GalleryGrid";
 
 type Category =
@@ -22,6 +23,15 @@ interface GalleryItem {
 interface GallerySectionProps {
   items?: GalleryItem[];
 }
+
+const categories: { value: Category; label: string }[] = [
+  { value: "all", label: "All" },
+  { value: "bridal", label: "Bridal" },
+  { value: "editorial", label: "Editorial" },
+  { value: "natural", label: "Natural" },
+  { value: "evening", label: "Evening" },
+  { value: "effects", label: "Effects" },
+];
 
 const defaultItems: GalleryItem[] = [
   {
@@ -71,10 +81,20 @@ const defaultItems: GalleryItem[] = [
 const GallerySection = ({ items = defaultItems }: GallerySectionProps) => {
   const [activeCategory, setActiveCategory] = useState<Category>("all");
 
+  const handleCategoryChange = useCallback((category: Category) => {
+    setActiveCategory(category);
+  }, []);
+
   const filteredItems =
     activeCategory === "all"
       ? items
       : items.filter((item) => item.category === activeCategory);
+
+  const getCategoryCount = (category: Category) => {
+    return category === "all"
+      ? items.length
+      : items.filter((item) => item.category === category).length;
+  };
 
   return (
     <section className="w-full min-h-[800px] bg-white py-16 px-4 md:px-6 lg:px-8">
@@ -87,62 +107,32 @@ const GallerySection = ({ items = defaultItems }: GallerySectionProps) => {
           </p>
         </div>
 
-        <Tabs defaultValue="all" className="w-full">
-          <TabsList className="flex justify-center mb-8">
-            <TabsTrigger value="all" onClick={() => setActiveCategory("all")}>
-              All
-            </TabsTrigger>
-            <TabsTrigger
-              value="bridal"
-              onClick={() => setActiveCategory("bridal")}
+        <div className="flex flex-wrap justify-center gap-2 mb-8">
+          {categories.map((category) => (
+            <Badge
+              key={category.value}
+              variant={
+                activeCategory === category.value ? "default" : "secondary"
+              }
+              className="cursor-pointer text-sm px-4 py-2 hover:bg-primary/90 transition-colors duration-200 ease-in-out"
+              onClick={() => handleCategoryChange(category.value)}
             >
-              Bridal
-            </TabsTrigger>
-            <TabsTrigger
-              value="editorial"
-              onClick={() => setActiveCategory("editorial")}
-            >
-              Editorial
-            </TabsTrigger>
-            <TabsTrigger
-              value="natural"
-              onClick={() => setActiveCategory("natural")}
-            >
-              Natural
-            </TabsTrigger>
-            <TabsTrigger
-              value="evening"
-              onClick={() => setActiveCategory("evening")}
-            >
-              Evening
-            </TabsTrigger>
-            <TabsTrigger
-              value="effects"
-              onClick={() => setActiveCategory("effects")}
-            >
-              Effects
-            </TabsTrigger>
-          </TabsList>
+              {category.label} ({getCategoryCount(category.value)})
+            </Badge>
+          ))}
+        </div>
 
-          <TabsContent value="all" className="mt-0">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeCategory}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+          >
             <GalleryGrid items={filteredItems} />
-          </TabsContent>
-          <TabsContent value="bridal" className="mt-0">
-            <GalleryGrid items={filteredItems} />
-          </TabsContent>
-          <TabsContent value="editorial" className="mt-0">
-            <GalleryGrid items={filteredItems} />
-          </TabsContent>
-          <TabsContent value="natural" className="mt-0">
-            <GalleryGrid items={filteredItems} />
-          </TabsContent>
-          <TabsContent value="evening" className="mt-0">
-            <GalleryGrid items={filteredItems} />
-          </TabsContent>
-          <TabsContent value="effects" className="mt-0">
-            <GalleryGrid items={filteredItems} />
-          </TabsContent>
-        </Tabs>
+          </motion.div>
+        </AnimatePresence>
 
         <div className="text-center mt-12">
           <Button variant="outline" size="lg">
