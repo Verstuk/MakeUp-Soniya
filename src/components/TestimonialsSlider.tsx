@@ -26,29 +26,29 @@ interface TestimonialsSliderProps {
 const defaultTestimonials: Testimonial[] = [
   {
     id: "1",
-    name: "Sarah Johnson",
+    name: "Марина",
     avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=sarah",
-    role: "Bride",
+    role: "Невеста",
     content:
-      "The most amazing makeup artist I've ever worked with! Made me feel absolutely beautiful on my wedding day.",
+      "Самый потрясающий визажист, с которым я когда-либо работала! Благодаря ей я чувствовала себя абсолютно прекрасной в день своей свадьбы.",
     rating: 5,
   },
   {
     id: "2",
-    name: "Emily Davis",
+    name: "Ирина",
     avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=emily",
-    role: "Model",
+    role: "Модель",
     content:
-      "Incredible attention to detail and perfect for editorial shoots. Always delivers beyond expectations.",
+      "Невероятное внимание к деталям и идеально подходит для редакционных съёмок. Всегда превосходит ожидания.",
     rating: 5,
   },
   {
     id: "3",
-    name: "Michelle Wong",
+    name: "Александра",
     avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=michelle",
-    role: "Celebrity Client",
+    role: "День рождения",
     content:
-      "My go-to makeup artist for all red carpet events. Understands exactly what I need every time.",
+      "Мой визажист на всех мероприятиях с красной ковровой дорожкой. Каждый раз точно понимает, что мне нужно.",
     rating: 5,
   },
 ];
@@ -60,7 +60,7 @@ const TestimonialsSlider = ({
     <div className="w-full h-[400px] bg-gray-50 py-12 px-4">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-3xl font-semibold text-center mb-8">
-          Client Testimonials
+          Отзывы клиентов
         </h2>
         <Carousel className="w-full">
           <CarouselContent>

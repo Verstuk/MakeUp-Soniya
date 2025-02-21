@@ -25,20 +25,20 @@ interface GallerySectionProps {
 }
 
 const categories: { value: Category; label: string }[] = [
-  { value: "all", label: "All" },
-  { value: "bridal", label: "Bridal" },
-  { value: "editorial", label: "Editorial" },
-  { value: "natural", label: "Natural" },
-  { value: "evening", label: "Evening" },
-  { value: "effects", label: "Effects" },
+  { value: "all", label: "Все" },
+  { value: "bridal", label: "Свадебный" },
+  { value: "editorial", label: "Фэшн" },
+  { value: "natural", label: "Естественный" },
+  { value: "evening", label: "Вечерний" },
+  { value: "effects", label: "Спецэффекты" },
 ];
 
 const defaultItems: GalleryItem[] = [
   {
     id: "1",
     imageUrl: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f",
-    title: "Bridal Makeup",
-    description: "Elegant bridal look with natural tones",
+    title: "Свадебный макияж",
+    description: "Элегантный свадебный образ в естественных тонах",
     category: "bridal",
   },
   {
@@ -100,10 +100,10 @@ const GallerySection = ({ items = defaultItems }: GallerySectionProps) => {
     <section className="w-full min-h-[800px] bg-white py-16 px-4 md:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold mb-4">Featured Work</h2>
+          <h2 className="text-3xl font-bold mb-4">Избранное</h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Explore our collection of stunning makeup transformations and
-            artistic creations
+            Познакомьтесь с моей коллекцией потрясающих преображений макияжа и
+            художественных творений
           </p>
         </div>
 
@@ -136,7 +136,7 @@ const GallerySection = ({ items = defaultItems }: GallerySectionProps) => {
 
         <div className="text-center mt-12">
           <Button variant="outline" size="lg">
-            View Full Portfolio
+            Смотреть все работы
           </Button>
         </div>
       </div>

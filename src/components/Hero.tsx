@@ -42,7 +42,11 @@ const Hero = ({
 
         <Button
           size="lg"
-          onClick={onCtaClick}
+          onClick={() =>
+            document
+              .getElementById("contact")
+              ?.scrollIntoView({ behavior: "smooth" })
+          }
           className="bg-white text-black hover:bg-white/90 text-lg px-8 py-6"
         >
           {ctaText}

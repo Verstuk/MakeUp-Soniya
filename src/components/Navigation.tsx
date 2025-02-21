@@ -66,6 +66,11 @@ const Navigation = ({
             isTransparent &&
               "text-black border-white hover:bg-white hover:text-gray",
           )}
+          onClick={() => {
+            document
+              .getElementById("contact")
+              ?.scrollIntoView({ behavior: "smooth" });
+          }}
         >
           Записаться
         </Button>

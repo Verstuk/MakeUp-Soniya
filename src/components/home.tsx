@@ -4,6 +4,7 @@ import Hero from "./Hero";
 import GallerySection from "./Gallery/GallerySection";
 import TestimonialsSlider from "./TestimonialsSlider";
 import Footer from "./Footer";
+import ContactForm from "./ContactForm";
 
 interface HomeProps {
   isNavigationTransparent?: boolean;
@@ -24,6 +25,7 @@ const Home = ({ isNavigationTransparent = true }: HomeProps) => {
         <GallerySection />
 
         <TestimonialsSlider />
+        <ContactForm />
       </main>
 
       <Footer
