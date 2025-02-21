@@ -16,22 +16,21 @@ interface NavigationProps {
 }
 
 const Navigation = ({
-  logo = "https://api.dicebear.com/7.x/avataaars/svg?seed=makeup",
-  isTransparent = true,
+  logo = "lips.svg",
+  isTransparent = false,
 }: NavigationProps) => {
   const menuItems = [
-    { title: "Portfolio", href: "/portfolio" },
-    { title: "About", href: "/about" },
-    { title: "Press", href: "/press" },
-    { title: "Courses", href: "/courses" },
-    { title: "FAQ", href: "/faq" },
+    { title: "Портфолио", href: "/portfolio" },
+    { title: "Обо мне", href: "/about" },
+    { title: "Курсы", href: "/courses" },
+    { title: "Блог", href: "/blog" },
   ];
 
   return (
     <div
       className={cn(
         "fixed top-0 left-0 right-0 z-50 h-20 px-6",
-        isTransparent ? "bg-transparent" : "bg-white shadow-sm",
+        "bg-black/50 shadow-sm",
       )}
     >
       <div className="max-w-7xl mx-auto h-full flex items-center justify-between">
@@ -65,10 +64,10 @@ const Navigation = ({
           className={cn(
             "px-6",
             isTransparent &&
-              "text-white border-white hover:bg-white hover:text-black",
+              "text-black border-white hover:bg-white hover:text-gray",
           )}
         >
-          Book Now
+          Записаться
         </Button>
       </div>
     </div>
