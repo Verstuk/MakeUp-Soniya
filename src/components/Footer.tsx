@@ -1,12 +1,13 @@
 import React from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Instagram, Mail, Phone } from "lucide-react";
+import { Instagram, Mail, Phone, Send } from "lucide-react";
 
 interface FooterProps {
   socialLinks?: {
     instagram?: string;
     tiktok?: string;
+    telegram?: string;
   };
   contactInfo?: {
     email?: string;
@@ -18,6 +19,7 @@ const Footer = ({
   socialLinks = {
     instagram: "https://instagram.com/makeupartist",
     tiktok: "https://tiktok.com/@makeupartist",
+    telegram: "https://tiktok.com/@makeupartist",
   },
   contactInfo = {
     email: "contact@makeupartist.com",
@@ -30,7 +32,7 @@ const Footer = ({
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Social Media Links */}
           <div className="space-y-4">
-            <h3 className="text-xl font-semibold mb-4">Follow Us</h3>
+            <h3 className="text-xl font-semibold mb-4">Социалочки</h3>
             <div className="flex space-x-4">
               <a
                 href={socialLinks.instagram}
@@ -39,6 +41,14 @@ const Footer = ({
                 className="hover:text-pink-400 transition-colors"
               >
                 <Instagram size={24} />
+              </a>
+              <a
+                href={socialLinks.telegram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-pink-400 transition-colors"
+              >
+                <Send size={24} />
               </a>
               <a
                 href={socialLinks.tiktok}
@@ -65,7 +75,7 @@ const Footer = ({
 
           {/* Contact Information */}
           <div className="space-y-4">
-            <h3 className="text-xl font-semibold mb-4">Contact Us</h3>
+            <h3 className="text-xl font-semibold mb-4">Контакты</h3>
             <div className="space-y-2">
               <div className="flex items-center space-x-2">
                 <Mail size={20} />
@@ -90,19 +100,19 @@ const Footer = ({
 
           {/* Newsletter Signup */}
           <div className="space-y-4">
-            <h3 className="text-xl font-semibold mb-4">Newsletter</h3>
+            <h3 className="text-xl font-semibold mb-4">Рассылочки</h3>
             <div className="flex flex-col space-y-2">
               <p className="text-sm text-gray-300">
-                Stay updated with our latest work and offers
+                Будьте в курсе наших последних работ и предложений
               </p>
               <div className="flex space-x-2">
                 <Input
                   type="email"
-                  placeholder="Enter your email"
+                  placeholder="Ваш email"
                   className="bg-gray-800 border-gray-700 text-white"
                 />
                 <Button variant="secondary" className="whitespace-nowrap">
-                  Subscribe
+                  Подписаться
                 </Button>
               </div>
             </div>

@@ -117,7 +117,7 @@ const GallerySection = ({ items = defaultItems }: GallerySectionProps) => {
               className="cursor-pointer text-sm px-4 py-2 hover:bg-primary/90 transition-colors duration-200 ease-in-out"
               onClick={() => handleCategoryChange(category.value)}
             >
-              {category.label} ({getCategoryCount(category.value)})
+              {category.label}
             </Badge>
           ))}
         </div>

@@ -17,9 +17,10 @@ interface NavigationProps {
 
 const Navigation = ({
   logo = "lips.svg",
-  isTransparent = false,
+  isTransparent = true,
 }: NavigationProps) => {
   const menuItems = [
+    { title: "Главная", href: "/" },
     { title: "Портфолио", href: "/portfolio" },
     { title: "Обо мне", href: "/about" },
     { title: "Курсы", href: "/courses" },
@@ -46,7 +47,7 @@ const Navigation = ({
               <NavigationMenuItem key={item.title}>
                 <NavigationMenuLink
                   className={cn(
-                    "px-4 py-2 text-sm font-medium transition-colors hover:text-primary",
+                    "px-4 py-2 text-sm font-medium transition-colors hover:text-gray-300 active:text-red",
                     isTransparent ? "text-white" : "text-gray-700",
                   )}
                   href={item.href}

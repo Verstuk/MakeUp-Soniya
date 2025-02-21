@@ -18,8 +18,8 @@ const Home = ({ isNavigationTransparent = true }: HomeProps) => {
       <main>
         <Hero
           backgroundImage="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937"
-          title="Professional Makeup Artistry"
-          subtitle="Transform your look with expert makeup application and personalized beauty services"
+          title="Профессиональное мастерство визажиста"
+          subtitle="Преобразите свой образ с помощью профессионального макияжа и индивидуальных косметических услуг"
         />
 
         <GallerySection />

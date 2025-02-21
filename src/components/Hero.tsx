@@ -13,7 +13,7 @@ interface HeroProps {
 const Hero = ({
   backgroundImage = "https://images.unsplash.com/photo-1516975080664-ed2fc6a32937",
   title = "Профессиональное мастерство визажиста",
-  subtitle = "Преобразите свой образ с помощью профессионального макияжа и индивидуальных косметических услуг.",
+  subtitle = "Преобразите свой образ с помощью профессионального макияжа и индивидуальных косметических услуг",
   ctaText = "Записаться",
   onCtaClick = () => console.log("CTA clicked"),
 }: HeroProps) => {
