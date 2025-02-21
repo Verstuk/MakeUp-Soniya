@@ -11,7 +11,7 @@ interface HeroProps {
 }
 
 const Hero = ({
-  backgroundImage = "https://images.unsplash.com/photo-1516975080664-ed2fc6a32937",
+  backgroundImage = "back.jpeg",
   title = "Профессиональное мастерство визажиста",
   subtitle = "Преобразите свой образ с помощью профессионального макияжа и индивидуальных косметических услуг",
   ctaText = "Записаться",
@@ -25,7 +25,6 @@ const Hero = ({
       >
         <div className="absolute inset-0 bg-black/40" />
       </div>
-
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}

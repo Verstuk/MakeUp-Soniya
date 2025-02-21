@@ -1,4 +1,5 @@
 import React, { useState, useCallback } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { motion, AnimatePresence } from "framer-motion";
@@ -10,7 +11,8 @@ type Category =
   | "editorial"
   | "natural"
   | "evening"
-  | "effects";
+  | "effects"
+  | "eyebrows";
 
 interface GalleryItem {
   id: string;
@@ -31,6 +33,7 @@ const categories: { value: Category; label: string }[] = [
   { value: "natural", label: "Естественный" },
   { value: "evening", label: "Вечерний" },
   { value: "effects", label: "Спецэффекты" },
+  { value: "eyebrows", label: "Брови" },
 ];
 
 const defaultItems: GalleryItem[] = [
@@ -56,13 +59,6 @@ const defaultItems: GalleryItem[] = [
     category: "natural",
   },
   {
-    id: "4",
-    imageUrl: "https://images.unsplash.com/photo-1512257739666-7ee1a41ff472",
-    title: "Evening Makeup",
-    description: "Dramatic evening look",
-    category: "evening",
-  },
-  {
     id: "5",
     imageUrl: "https://images.unsplash.com/photo-1516975080664-ed2fc6a32937",
     title: "Special Effects",
@@ -75,6 +71,13 @@ const defaultItems: GalleryItem[] = [
     title: "Red Carpet",
     description: "Celebrity-inspired red carpet look",
     category: "evening",
+  },
+  {
+    id: "7",
+    imageUrl: "eyebrows_1.jpeg",
+    title: "Red Carpet",
+    description: "Celebrity-inspired red carpet look",
+    category: "eyebrows",
   },
 ];
 
@@ -134,10 +137,12 @@ const GallerySection = ({ items = defaultItems }: GallerySectionProps) => {
           </motion.div>
         </AnimatePresence>
 
-        <div className="text-center mt-12">
-          <Button variant="outline" size="lg">
-            Смотреть все работы
-          </Button>
+        <div className="text-center mt-40">
+          <Link to="/portfolio">
+            <Button variant="outline" size="lg">
+              Смотреть все работы
+            </Button>
+          </Link>
         </div>
       </div>
     </section>

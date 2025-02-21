@@ -16,19 +16,19 @@ const Home = ({ isNavigationTransparent = true }: HomeProps) => {
       <Navigation isTransparent={isNavigationTransparent} />
       <main>
         <Hero
-          backgroundImage="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937"
+          backgroundImage="back.jpeg"
           title="Профессиональное мастерство визажиста"
           subtitle="Преобразите свой образ с помощью профессионального макияжа и индивидуальных косметических услуг"
         />
         <GallerySection />
         <TestimonialsSlider />
         <ContactForm />
-        <ContactForm />
       </main>
       <Footer
         socialLinks={{
           instagram: "https://instagram.com/makeupartist",
           tiktok: "https://tiktok.com/@makeupartist",
+          telegram: "https://t.me",
         }}
         contactInfo={{
           email: "contact@makeupartist.com",
