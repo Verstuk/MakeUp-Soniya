@@ -4,6 +4,7 @@ import Home from "./components/home";
 import PortfolioPage from "./pages/portfolio";
 import AboutPage from "./pages/about";
 import CoursesPage from "./pages/courses";
+import BlogPage from "./pages/blog";
 import routes from "tempo-routes";
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
           <Route path="/portfolio" element={<PortfolioPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/courses" element={<CoursesPage />} />
+          <Route path="/blog" element={<BlogPage />} />
           {/* Add this before the catchall route */}
           {import.meta.env.VITE_TEMPO === "true" && (
             <Route path="/tempobook/*" />
