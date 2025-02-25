@@ -4,84 +4,20 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { motion, AnimatePresence } from "framer-motion";
 import GalleryGrid from "./GalleryGrid";
+import {
+  defaultItems,
+  categories,
+  GalleryItem,
+  Category,
+} from "./gallery.data";
 
-type Category =
-  | "all"
-  | "bridal"
-  | "editorial"
-  | "natural"
-  | "evening"
-  | "effects"
-  | "eyebrows";
-
-interface GalleryItem {
-  id: string;
-  imageUrl: string;
-  title: string;
-  description: string;
-  category: Category;
-}
-
-interface GallerySectionProps {
+interface FeaturedGalleryProps {
   items?: GalleryItem[];
 }
 
-const categories: { value: Category; label: string }[] = [
-  { value: "all", label: "Все" },
-  { value: "bridal", label: "Свадебный" },
-  { value: "natural", label: "Дневной" },
-  { value: "evening", label: "Вечерний" },
-  { value: "editorial", label: "Фэшн" },
-  { value: "effects", label: "Спецэффекты" },
-  { value: "eyebrows", label: "Брови" },
-];
-
-const defaultItems: GalleryItem[] = [
-  {
-    id: "1",
-    imageUrl: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f",
-    title: "Свадебный макияж",
-    description: "Элегантный свадебный образ в естественных тонах",
-    category: "bridal",
-  },
-  {
-    id: "2",
-    imageUrl: "https://images.unsplash.com/photo-1503236823255-94609f598e71",
-    title: "Editorial Look",
-    description: "High fashion editorial makeup",
-    category: "editorial",
-  },
-  {
-    id: "3",
-    imageUrl: "https://images.unsplash.com/photo-1526045478516-99145907023c",
-    title: "Natural Glam",
-    description: "Soft glam for everyday wear",
-    category: "natural",
-  },
-  {
-    id: "5",
-    imageUrl: "https://images.unsplash.com/photo-1516975080664-ed2fc6a32937",
-    title: "Special Effects",
-    description: "Creative special effects makeup",
-    category: "effects",
-  },
-  {
-    id: "6",
-    imageUrl: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9",
-    title: "Red Carpet",
-    description: "Celebrity-inspired red carpet look",
-    category: "evening",
-  },
-  {
-    id: "7",
-    imageUrl: "eyebrows_1.jpeg",
-    title: "Red Carpet",
-    description: "Celebrity-inspired red carpet look",
-    category: "eyebrows",
-  },
-];
-
-const GallerySection = ({ items = defaultItems }: GallerySectionProps) => {
+const FeaturedGallery = ({
+  items = defaultItems.slice(0, 6),
+}: FeaturedGalleryProps) => {
   const [activeCategory, setActiveCategory] = useState<Category>("all");
 
   const handleCategoryChange = useCallback((category: Category) => {
@@ -92,12 +28,6 @@ const GallerySection = ({ items = defaultItems }: GallerySectionProps) => {
     activeCategory === "all"
       ? items
       : items.filter((item) => item.category === activeCategory);
-
-  const getCategoryCount = (category: Category) => {
-    return category === "all"
-      ? items.length
-      : items.filter((item) => item.category === category).length;
-  };
 
   return (
     <section className="w-full min-h-[800px] bg-white py-16 px-4 md:px-6 lg:px-8">
@@ -137,7 +67,7 @@ const GallerySection = ({ items = defaultItems }: GallerySectionProps) => {
           </motion.div>
         </AnimatePresence>
 
-        <div className="text-center mt-40">
+        <div className="text-center mt-12">
           <Link to="/portfolio">
             <Button variant="outline" size="lg">
               Смотреть все работы
@@ -149,4 +79,4 @@ const GallerySection = ({ items = defaultItems }: GallerySectionProps) => {
   );
 };
 
-export default GallerySection;
+export default FeaturedGallery;

@@ -1,7 +1,7 @@
 import React from "react";
 import Navigation from "./Navigation";
 import Hero from "./Hero";
-import GallerySection from "./Gallery/GallerySection";
+import FeaturedGallery from "./Gallery/FeaturedGallery";
 import TestimonialsSlider from "./TestimonialsSlider";
 import Footer from "./Footer";
 import ContactForm from "./ContactForm";
@@ -20,7 +20,7 @@ const Home = ({ isNavigationTransparent = true }: HomeProps) => {
           title="Профессиональное мастерство визажиста"
           subtitle="Преобразите свой образ с помощью профессионального макияжа и индивидуальных косметических услуг"
         />
-        <GallerySection />
+        <FeaturedGallery />
         <TestimonialsSlider />
         <ContactForm />
       </main>
